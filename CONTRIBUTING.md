@@ -10,7 +10,7 @@ Thanks for your interest in contributing!
 ## Local Development
 
 ```bash
-git clone https://github.com/yourusername/videoscend
+git clone https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App
 cd videoscend
 npm install
 npm run dev

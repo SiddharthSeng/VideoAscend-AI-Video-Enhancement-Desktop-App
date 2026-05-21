@@ -5,6 +5,17 @@ directories:
   output: release
   buildResources: assets
 
+# Prevent electron-builder from failing on optional native deps
+npmRebuild: false
+buildDependenciesFromSource: false
+
+# Ensure asar includes necessary files
+asar: true
+asarUnpack:
+  - "node_modules/sharp/**"
+  - "node_modules/ffmpeg-static/**"
+  - "node_modules/@ffprobe-installer/**"
+
 files:
   - dist/**/*
   - electron/**/*
@@ -82,6 +93,6 @@ deb:
 
 publish:
   provider: github
-  owner: videoascend
-  repo: videoascend
+  owner: SiddharthSeng
+  repo: VideoAscend-AI-Video-Enhancement-Desktop-App
   releaseType: release

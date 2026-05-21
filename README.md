@@ -4,10 +4,10 @@
   <p>AI-powered video super-resolution and frame interpolation<br/>
   Compact desktop app for Windows, macOS, and Linux</p>
 
-  [![Build Status](https://github.com/yourusername/videoscend/actions/workflows/build.yml/badge.svg)](https://github.com/yourusername/videoscend/actions)
+  [![Build Status](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/actions/workflows/build.yml/badge.svg)](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/actions)
   [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-blue.svg)](LICENSE)
-  [![GitHub Release](https://img.shields.io/github/v/release/yourusername/videoscend)](https://github.com/yourusername/videoscend/releases/latest)
-  [![Downloads](https://img.shields.io/github/downloads/yourusername/videoscend/total)](https://github.com/yourusername/videoscend/releases)
+  [![GitHub Release](https://img.shields.io/github/v/release/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App)](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/latest)
+  [![Downloads](https://img.shields.io/github/downloads/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/total)](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases)
 </div>
 
 ---
@@ -102,7 +102,7 @@ processing time, and apply settings for you automatically.
 See [CONTRIBUTING.md](CONTRIBUTING.md) for full setup instructions.
 
 ```bash
-git clone https://github.com/yourusername/videoscend
+git clone https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App
 cd videoscend
 npm install
 npm run dev
