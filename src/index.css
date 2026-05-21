@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    height: 100%;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Compact popup — transparent bg for rounded corners */
+    background: transparent;
+  }
+
+  html, html.dark {
+    color: #e2e8f0;
+  }
+  html.light {
+    color: #1e293b;
+  }
+
+  /* Root fills viewport */
+  #root {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+  }
+
+  /* Scrollbars — thin & styled */
+  ::-webkit-scrollbar         { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track   { background: transparent; }
+  ::-webkit-scrollbar-thumb   { background: rgba(124,92,252,0.3); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: #7c5cfc; }
+
+  /* Hide scrollbar for algorithm scroll row */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+
+  /* Range input styling */
+  input[type="range"] { -webkit-appearance: none; appearance: none; }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: #7c5cfc;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(124,92,252,0.5);
+  }
+}
+
+/* ── CSS variables ───────────────────────────────────────────────────────────── */
+:root {
+  --bg-primary:   #0f1117;
+  --bg-secondary: #1a1d27;
+  --bg-card:      #1e2130;
+  --border:       rgba(255,255,255,0.07);
+  --text-primary: #e2e8f0;
+  --text-muted:   #475569;
+  --accent:       #7c5cfc;
+  --accent-light: #a78bfa;
+}
+html.light {
+  --bg-primary:   #f1f3f9;
+  --bg-secondary: #ffffff;
+  --bg-card:      #ffffff;
+  --border:       rgba(0,0,0,0.08);
+  --text-primary: #1e293b;
+  --text-muted:   #94a3b8;
+}
+
+/* ── Keyframes ────────────────────────────────────────────────────────────────── */
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.95) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+
+@keyframes checkmark {
+  from { stroke-dashoffset: 100; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes themePulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.2) rotate(15deg); }
+}
+
+@keyframes logIn {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Confetti particle animation */
+@keyframes confettiFall {
+  0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(120px) rotate(720deg); opacity: 0; }
+}
+
+/* ── Utility classes ──────────────────────────────────────────────────────────── */
+.app-root {
+  animation: popIn 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-fade-in  { animation: fadeIn  0.35s ease-out forwards; }
+.animate-slide-up { animation: slideUp 0.35s ease-out forwards; }
+.animate-scale-in { animation: scaleIn 0.25s ease-out forwards; }
+.animate-float    { animation: float 3s ease-in-out infinite; }
+.animate-spin     { animation: spin 0.8s linear infinite; }
+.animate-pulse    { animation: pulse 2s ease-in-out infinite; }
+
+.animate-checkmark {
+  stroke-dasharray: 100;
+  animation: checkmark 0.8s ease-out 0.3s forwards;
+}
+
+.progress-ring-circle {
+  transition: stroke-dashoffset 0.5s ease-out;
+  transform-origin: center;
+  transform: rotate(-90deg);
+}
+
+.log-line-enter { animation: logIn 0.25s ease-out forwards; }
+.theme-icon-enter { animation: themePulse 0.4s ease-out; }
+
+/* Drop zone dragging */
+.drag-over {
+  background: rgba(124,92,252,0.1) !important;
+  border-color: #7c5cfc !important;
+  box-shadow: 0 0 0 1px rgba(124,92,252,0.5), inset 0 0 30px rgba(124,92,252,0.06) !important;
+}
+
+/* Shimmer effect */
+.shimmer-bg {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+
+/* Glass utilities */
+.glass {
+  background: rgba(26,29,39,0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+.glow-violet { box-shadow: 0 0 16px rgba(124,92,252,0.4), 0 0 40px rgba(124,92,252,0.15); }
+.glow-teal   { box-shadow: 0 0 16px rgba(34,211,238,0.35); }
+.glow-green  { box-shadow: 0 0 16px rgba(16,185,129,0.4); }
+
+.gradient-violet { background: linear-gradient(135deg, #7c5cfc 0%, #6366f1 50%, #4f46e5 100%); }
+.gradient-text {
+  background: linear-gradient(135deg, #7c5cfc, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Confetti particles for batch complete */
+.confetti-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  animation: confettiFall 1.5s ease-out forwards;
+}

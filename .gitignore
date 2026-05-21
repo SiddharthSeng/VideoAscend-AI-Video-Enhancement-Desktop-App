@@ -1,0 +1,48 @@
+# Build output — generated at release time
+release/
+dist/
+
+# Dependencies
+node_modules/
+
+# Environment — never commit credentials
+.env
+.env.local
+.env.*.local
+
+# Icon source and generated sizes — recreated by npm run generate-icons
+assets/icon-source.png
+assets/icons/
+
+# Electron local config (contains encrypted API key)
+electron/config.json
+
+# macOS
+.DS_Store
+*.dmg.blockmap
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Linux
+*~
+
+# Editor
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+electron-builder-debug.yml
+
+# Test temp files
+/tmp/videoscend-test-*
+
+# Sharp build artifacts (platform-specific, rebuilt on npm install)
+node_modules/sharp/build/
