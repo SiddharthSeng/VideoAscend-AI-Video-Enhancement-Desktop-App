@@ -115,7 +115,10 @@ async function createAllIcons() {
 
   // 3. Generate icon.ico for Windows (multi-size ICO using png-to-ico)
   try {
-    const pngToIco = require('png-to-ico');
+    // png-to-ico v3+ uses ES module exports — .default is the actual function
+    const pngToIcoModule = require('png-to-ico');
+    const pngToIco = pngToIcoModule.default || pngToIcoModule.imagesToIco || pngToIcoModule;
+    if (typeof pngToIco !== 'function') throw new Error('png-to-ico export is not a function');
     const icoSizes = [16, 32, 48, 64, 128, 256];
     const icoBuffers = await Promise.all(
       icoSizes.map(size =>

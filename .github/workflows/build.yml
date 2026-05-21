@@ -33,22 +33,27 @@ jobs:
       - name: Ensure fallback icons exist
         shell: pwsh
         run: |
-          if (!(Test-Path "assets/icon.ico")) {
-            Copy-Item "assets/icon.png" "assets/icon.ico"
-            echo "Used PNG fallback for icon.ico"
+          $icons = @("assets/icon.png", "assets/icon.ico", "assets/icon.icns")
+          foreach ($icon in $icons) {
+            if (!(Test-Path $icon)) {
+              Copy-Item "assets/icon.png" $icon -ErrorAction SilentlyContinue
+              echo "Created fallback: $icon"
+            } else {
+              echo "OK: $icon"
+            }
           }
-          if (!(Test-Path "assets/icon.icns")) {
-            Copy-Item "assets/icon.png" "assets/icon.icns"
-            echo "Used PNG fallback for icon.icns"
-          }
-          echo "Icons ready:"
-          Get-ChildItem assets/ -Filter "icon*"
+
+      - name: Rebuild native modules for Electron
+        run: npx electron-rebuild -f -w sharp
+        continue-on-error: true
 
       - name: Build Windows
         run: npm run dist:win
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES: 'true'
+          USE_HARD_LINKS: 'false'
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
 
       - uses: actions/upload-artifact@v4
         with:
@@ -81,15 +86,8 @@ jobs:
 
       - name: Ensure fallback icons exist
         run: |
-          if [ ! -f "assets/icon.ico" ]; then
-            cp assets/icon.png assets/icon.ico
-            echo "Used PNG fallback for icon.ico"
-          fi
-          if [ ! -f "assets/icon.icns" ]; then
-            cp assets/icon.png assets/icon.icns
-            echo "Used PNG fallback for icon.icns"
-          fi
-          echo "Icons ready:"
+          [ ! -f assets/icon.ico ] && cp assets/icon.png assets/icon.ico
+          [ ! -f assets/icon.icns ] && cp assets/icon.png assets/icon.icns
           ls -lh assets/icon*
 
       - name: Build macOS
@@ -98,6 +96,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CSC_IDENTITY_AUTO_DISCOVERY: 'false'
           ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES: 'true'
+          USE_HARD_LINKS: 'false'
 
       - uses: actions/upload-artifact@v4
         with:
@@ -119,17 +118,21 @@ jobs:
 
       - name: Install system dependencies
         run: |
-          sudo apt-get update
+          sudo apt-get update -y
           sudo apt-get install -y \
             libgtk-3-dev \
             libnotify-dev \
-            libnss3 \
+            libnss3-dev \
             libxss1 \
-            libasound2 \
             libxtst6 \
+            libgbm-dev \
+            libxkbcommon-x11-0 \
             xvfb \
             rpm \
-            flatpak-builder
+          || true
+          sudo apt-get install -y libasound2t64 2>/dev/null \
+            || sudo apt-get install -y libasound2 2>/dev/null \
+            || echo "libasound skipped"
 
       - name: Install dependencies
         run: npm ci
@@ -144,22 +147,20 @@ jobs:
 
       - name: Ensure fallback icons exist
         run: |
-          if [ ! -f "assets/icon.ico" ]; then
-            cp assets/icon.png assets/icon.ico
-            echo "Used PNG fallback for icon.ico"
-          fi
-          if [ ! -f "assets/icon.icns" ]; then
-            cp assets/icon.png assets/icon.icns
-            echo "Used PNG fallback for icon.icns"
-          fi
-          echo "Icons ready:"
+          [ ! -f assets/icon.ico ] && cp assets/icon.png assets/icon.ico
+          [ ! -f assets/icon.icns ] && cp assets/icon.png assets/icon.icns
           ls -lh assets/icon*
+
+      - name: Rebuild native modules for Electron
+        run: npx electron-rebuild -f -w sharp
+        continue-on-error: true
 
       - name: Build Linux
         run: npm run dist:linux
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES: 'true'
+          USE_HARD_LINKS: 'false'
 
       - uses: actions/upload-artifact@v4
         with:
@@ -206,10 +207,8 @@ jobs:
             | Linux AppImage | `VideoAscend-*-x86_64.AppImage` |
             | Linux deb | `VideoAscend-*-amd64.deb` |
 
-            > **macOS:** Right-click → Open on first launch to bypass
-            > the unidentified developer warning.
-
-            > **Linux AppImage:** Run `chmod +x *.AppImage` first.
+            > **macOS:** Right-click the app → Open on first launch.
+            > **Linux AppImage:** Run chmod +x *.AppImage first.
 
           files: |
             release-files/**/*.exe
