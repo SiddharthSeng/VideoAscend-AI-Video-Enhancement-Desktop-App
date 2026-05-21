@@ -43,30 +43,61 @@ No cloud upload. No subscription. No data leaves your computer.
 
 ## Download
 
-**[→ Latest Release](../../releases/latest)**
+**[→ Latest Release](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/latest)**
 
-| Platform | Download | Notes |
+---
+
+### 🪟 Windows
+
+| File | Type | Size |
 |---|---|---|
-| Windows | `VideoAscend-x.x.x-Setup.exe` | NSIS installer, x64 |
-| Windows | `VideoAscend-x.x.x-Portable.exe` | No install needed |
-| macOS Intel | `VideoAscend-x.x.x-mac-x64.dmg` | macOS 11+ |
-| macOS Apple Silicon | `VideoAscend-x.x.x-mac-arm64.dmg` | M1/M2/M3/M4 |
-| Linux | `VideoAscend-x.x.x-x86_64.AppImage` | Universal |
-| Linux | `VideoAscend-x.x.x-amd64.deb` | Debian / Ubuntu |
+| [`VideoAscend-6.5.0-Setup.exe`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/VideoAscend%20Setup%206.5.0.exe) | Installer (recommended) | ~215 MB |
+| [`VideoAscend-6.5.0-Portable.exe`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/VideoAscend%206.5.0.exe) | Portable — no install needed | ~112 MB |
 
-### Platform notes
+> If Windows SmartScreen appears, click **More info** → **Run anyway**.
 
-**macOS:** On first launch, right-click the app → **Open**, then
-click **Open** in the dialog. This bypasses the unsigned app warning.
-You only need to do this once.
+---
 
-**Linux AppImage:**
-```bash
-chmod +x VideoAscend-*.AppImage
-./VideoAscend-*.AppImage
-```
+### 🍎 macOS
 
-**Windows:** If SmartScreen appears, click **More info** → **Run anyway**.
+| File | Type | Chip |
+|---|---|---|
+| [`VideoAscend-6.5.0-mac-arm64.dmg`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/VideoAscend-6.5.0-arm64.dmg) | Disk image (recommended) | Apple Silicon (M1/M2/M3/M4) |
+| [`VideoAscend-6.5.0-mac-x64.dmg`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/VideoAscend-6.5.0.dmg) | Disk image | Intel |
+| [`VideoAscend-6.5.0-arm64-mac.zip`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/VideoAscend-6.5.0-arm64-mac.zip) | ZIP archive | Apple Silicon |
+| [`VideoAscend-6.5.0-mac.zip`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/VideoAscend-6.5.0-mac.zip) | ZIP archive | Intel |
+
+> **First launch:** Right-click the app → **Open**, then click **Open**
+> in the dialog. This bypasses the unsigned app warning.
+> You only need to do this once.
+
+---
+
+### 🐧 Linux
+
+| File | Type | Distro |
+|---|---|---|
+| [`VideoAscend-6.5.0-x86_64.AppImage`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/VideoAscend-6.5.0.AppImage) | AppImage (recommended) | Any distro |
+| [`videoascend-6.5.0-amd64.deb`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/videoascend_6.5.0_amd64.deb) | Debian package | Ubuntu / Debian |
+| [`videoascend-6.5.0-x86_64.rpm`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/videoascend-6.5.0.x86_64.rpm) | RPM package | Fedora / RHEL |
+| [`VideoAscend-6.5.0-arm64.AppImage`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/VideoAscend-6.5.0-arm64.AppImage) | AppImage | ARM64 devices |
+
+> **AppImage:** Make executable first:
+> ```bash
+> chmod +x VideoAscend-*.AppImage
+> ./VideoAscend-*.AppImage
+> ```
+
+---
+
+### System Requirements
+
+| | Minimum | Recommended |
+|---|---|---|
+| **OS** | Windows 10, macOS 11, Ubuntu 20.04 | Windows 11, macOS 13, Ubuntu 22.04 |
+| **RAM** | 4 GB | 16 GB |
+| **GPU** | Any (CPU fallback) | NVIDIA RTX / AMD RX 6000 / Apple M1+ |
+| **Storage** | 500 MB free | 5 GB+ for output files |
 
 ---
 
