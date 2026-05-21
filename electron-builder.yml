@@ -75,6 +75,7 @@ nsis:
 linux:
   icon: assets/icon.png
   category: Video
+  maintainer: VideoAscend <support@videoascend.app>
   target:
     - target: AppImage
       arch: [x64, arm64]

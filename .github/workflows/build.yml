@@ -107,7 +107,7 @@ jobs:
           if-no-files-found: warn
 
   build-linux:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
 
@@ -119,20 +119,32 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update -y
+          # Core electron runtime deps
           sudo apt-get install -y \
-            libgtk-3-dev \
-            libnotify-dev \
-            libnss3-dev \
+            libgtk-3-0 \
+            libnotify4 \
+            libnss3 \
             libxss1 \
             libxtst6 \
-            libgbm-dev \
-            libxkbcommon-x11-0 \
+            libgbm1 \
+            libxkbcommon0 \
             xvfb \
             rpm \
+            fakeroot \
+            dpkg \
           || true
+          # libasound — name differs between Ubuntu versions
           sudo apt-get install -y libasound2t64 2>/dev/null \
             || sudo apt-get install -y libasound2 2>/dev/null \
-            || echo "libasound skipped"
+            || echo "libasound skipped — not critical"
+          # Build tools needed for native modules
+          sudo apt-get install -y \
+            build-essential \
+            python3 \
+            python3-pip \
+            libx11-dev \
+            libxext-dev \
+          || true
 
       - name: Install dependencies
         run: npm ci
@@ -147,22 +159,34 @@ jobs:
 
       - name: Ensure fallback icons exist
         run: |
-          [ ! -f assets/icon.ico ] && cp assets/icon.png assets/icon.ico
-          [ ! -f assets/icon.icns ] && cp assets/icon.png assets/icon.icns
+          [ ! -f assets/icon.ico ] && \
+            cp assets/icon.png assets/icon.ico && \
+            echo "Created fallback icon.ico"
+          [ ! -f assets/icon.icns ] && \
+            cp assets/icon.png assets/icon.icns && \
+            echo "Created fallback icon.icns"
+          echo "Icons present:"
           ls -lh assets/icon*
 
-      - name: Rebuild native modules for Electron
-        run: npx electron-rebuild -f -w sharp
+      - name: Rebuild sharp for Linux
+        run: |
+          cd node_modules/sharp && npm rebuild
         continue-on-error: true
 
-      - name: Build Linux
-        run: npm run dist:linux
+      - name: Build Linux (with virtual display)
+        run: |
+          export DISPLAY=:99
+          Xvfb :99 -screen 0 1024x768x24 &
+          sleep 2
+          npm run dist:linux
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES: 'true'
           USE_HARD_LINKS: 'false'
+          DEBUG: 'electron-builder'
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload Linux artifacts
+        uses: actions/upload-artifact@v4
         with:
           name: linux-build
           path: |
@@ -170,6 +194,7 @@ jobs:
             release/*.deb
             release/*.rpm
           if-no-files-found: warn
+
 
   create-release:
     needs: [build-windows, build-macos, build-linux]

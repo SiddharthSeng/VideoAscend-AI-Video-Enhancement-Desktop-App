@@ -1,6 +1,11 @@
 {
   "name": "videoascend",
   "productName": "VideoAscend",
+  "description": "AI-powered video enhancement desktop application",
+  "author": {
+    "name": "VideoAscend",
+    "email": "support@videoascend.app"
+  },
   "private": true,
   "version": "6.5.0",
   "main": "electron/main.js",
