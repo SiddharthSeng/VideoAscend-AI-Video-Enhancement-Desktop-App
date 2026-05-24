@@ -43,16 +43,16 @@ No cloud upload. No subscription. No data leaves your computer.
 
 ## Download
 
-**[→ Latest Release](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/latest)**
+**[→ Latest Release (v6.4.0)](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/latest)**
 
 ---
 
 ### 🪟 Windows
 
-| File | Type | Size |
-|---|---|---|
-| [`VideoAscend-6.5.0-Setup.exe`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/VideoAscend%20Setup%206.5.0.exe) | Installer (recommended) | ~215 MB |
-| [`VideoAscend-6.5.0-Portable.exe`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/VideoAscend%206.5.0.exe) | Portable — no install needed | ~112 MB |
+| File | Type |
+|---|---|
+| [`VideoAscend.Setup.6.5.0.exe`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.4.0/VideoAscend.Setup.6.5.0.exe) | Installer (recommended) |
+| [`VideoAscend.6.5.0.exe`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.4.0/VideoAscend.6.5.0.exe) | Portable — no install needed |
 
 > If Windows SmartScreen appears, click **More info** → **Run anyway**.
 
@@ -62,10 +62,10 @@ No cloud upload. No subscription. No data leaves your computer.
 
 | File | Type | Chip |
 |---|---|---|
-| [`VideoAscend-6.5.0-mac-arm64.dmg`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/VideoAscend-6.5.0-arm64.dmg) | Disk image (recommended) | Apple Silicon (M1/M2/M3/M4) |
-| [`VideoAscend-6.5.0-mac-x64.dmg`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/VideoAscend-6.5.0.dmg) | Disk image | Intel |
-| [`VideoAscend-6.5.0-arm64-mac.zip`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/VideoAscend-6.5.0-arm64-mac.zip) | ZIP archive | Apple Silicon |
-| [`VideoAscend-6.5.0-mac.zip`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/VideoAscend-6.5.0-mac.zip) | ZIP archive | Intel |
+| [`VideoAscend-6.5.0-arm64.dmg`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.4.0/VideoAscend-6.5.0-arm64.dmg) | Disk image (recommended) | Apple Silicon (M1/M2/M3/M4) |
+| [`VideoAscend-6.5.0.dmg`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.4.0/VideoAscend-6.5.0.dmg) | Disk image | Intel |
+| [`VideoAscend-6.5.0-arm64-mac.zip`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.4.0/VideoAscend-6.5.0-arm64-mac.zip) | ZIP archive | Apple Silicon |
+| [`VideoAscend-6.5.0-mac.zip`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.4.0/VideoAscend-6.5.0-mac.zip) | ZIP archive | Intel |
 
 > **First launch:** Right-click the app → **Open**, then click **Open**
 > in the dialog. This bypasses the unsigned app warning.
@@ -77,10 +77,10 @@ No cloud upload. No subscription. No data leaves your computer.
 
 | File | Type | Distro |
 |---|---|---|
-| [`VideoAscend-6.5.0-x86_64.AppImage`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/VideoAscend-6.5.0.AppImage) | AppImage (recommended) | Any distro |
-| [`videoascend-6.5.0-amd64.deb`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/videoascend_6.5.0_amd64.deb) | Debian package | Ubuntu / Debian |
-| [`videoascend-6.5.0-x86_64.rpm`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/videoascend-6.5.0.x86_64.rpm) | RPM package | Fedora / RHEL |
-| [`VideoAscend-6.5.0-arm64.AppImage`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.5.0/VideoAscend-6.5.0-arm64.AppImage) | AppImage | ARM64 devices |
+| [`VideoAscend-6.5.0.AppImage`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.4.0/VideoAscend-6.5.0.AppImage) | AppImage (recommended) | Any distro |
+| [`VideoAscend-6.5.0-arm64.AppImage`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.4.0/VideoAscend-6.5.0-arm64.AppImage) | AppImage | ARM64 devices |
+| [`videoascend_6.5.0_amd64.deb`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.4.0/videoascend_6.5.0_amd64.deb) | Debian package | Ubuntu / Debian |
+| [`videoascend-6.5.0.x86_64.rpm`](https://github.com/SiddharthSeng/VideoAscend-AI-Video-Enhancement-Desktop-App/releases/download/v6.4.0/videoascend-6.5.0.x86_64.rpm) | RPM package | Fedora / RHEL |
 
 > **AppImage:** Make executable first:
 > ```bash
@@ -98,17 +98,6 @@ No cloud upload. No subscription. No data leaves your computer.
 | **RAM** | 4 GB | 16 GB |
 | **GPU** | Any (CPU fallback) | NVIDIA RTX / AMD RX 6000 / Apple M1+ |
 | **Storage** | 500 MB free | 5 GB+ for output files |
-
----
-
-## System Requirements
-
-| | Minimum | Recommended |
-|---|---|---|
-| OS | Windows 10, macOS 11, Ubuntu 20.04 | Windows 11, macOS 13, Ubuntu 22.04 |
-| RAM | 4 GB | 16 GB |
-| GPU | Any (CPU fallback available) | NVIDIA RTX / AMD RX 6000 / Apple M1+ |
-| Storage | 500 MB free | 5 GB+ for output files |
 
 ---
 
